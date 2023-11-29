@@ -9,11 +9,11 @@ package packModele;
  * @author chris
  */
 public class Etudiant {
-    private int ident;
-    private String prenom;
-    private String nom;
-    private int departement;
-    private String filliere;
+    private final int ident;
+    private final String prenom;
+    private final String nom;
+    private final int departement;
+    private final String filliere;
 
     public Etudiant(int ident, String prenom, String nom, int departement, String filliere) {
         this.ident = ident;

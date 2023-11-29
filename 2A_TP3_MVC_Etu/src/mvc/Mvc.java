@@ -26,7 +26,7 @@ public class Mvc {
 
         // Affichage des étudiants chargés pour tester
         for (Etudiant etudiant : promotion.getEtudiants()) {
-            System.out.println("ID: " + etudiant.getIdent() + ", Prenom: " + etudiant.getPrenom() + ", Nom: " + etudiant.getNom() + ", Departement: " + etudiant.getDepartement() + ", Filliere: " + etudiant.getFilliere());
+            //System.out.println("ID: " + etudiant.getIdent() + ", Prenom: " + etudiant.getPrenom() + ", Nom: " + etudiant.getNom() + ", Departement: " + etudiant.getDepartement() + ", Filliere: " + etudiant.getFilliere());
         }
            
         fen.setVisible(true);

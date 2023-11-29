@@ -3,6 +3,8 @@ package packVue;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -21,7 +23,6 @@ public class VueListe extends AbstractVue {
 
     public VueListe(Promotion promotion) {
         // Initialisation de la promotion et chargement des étudiants depuis un CSV
-        this.promotion = promotion; 
         // Configuration de la JList
         liste = new JList<>();
         liste.setLayoutOrientation(JList.VERTICAL);
@@ -33,6 +34,8 @@ public class VueListe extends AbstractVue {
         gc.gridx = 0;
         gc.gridy = 0;
         this.add(scrollPane, gc);
+        liste.setPreferredSize(new Dimension (150,500));
+        
         gc.gridx = 0;
         gc.gridy = 1;
         this.add(btSuppr, gc);
@@ -43,19 +46,15 @@ public class VueListe extends AbstractVue {
         this.pack();
     }
 
-    public void remplissageListe(Promotion promotion) {
+    private void remplissageListe(Promotion promotion) {
+        ArrayList<Etudiant> etudiants = promotion.getEtudiants();
         DefaultListModel<String> model = new DefaultListModel<>();
-        for (Etudiant etudiant : promotion.getEtudiants()) {
-            model.addElement(etudiant.getPrenom() + " " + etudiant.getNom());
+        for (Etudiant etudiant : etudiants) {
+            System.out.println(etudiant.getPrenom()+ " " + etudiant.getNom());
+            model.addElement(etudiant.getIdent()+"-" +etudiant.getPrenom() + " " + etudiant.getNom());
         }
         liste.setModel(model);
     }   
-    public void actualiserListe() {
-    DefaultListModel<String> model = new DefaultListModel<>();
-    for (Etudiant etudiant : promotion.getEtudiants()) {
-        model.addElement(etudiant.getPrenom() + " " + etudiant.getNom());
-    }
-    liste.setModel(model);
-}
+    
 
 }

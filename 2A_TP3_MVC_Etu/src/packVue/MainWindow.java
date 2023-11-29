@@ -46,7 +46,7 @@ public class MainWindow extends JFrame{
         liste.setVisible(true);
         
          //taille de la fenetre
-         this.pack();
+        this.pack();
         this.setSize(camemb.getWidth()+histo.getWidth()+liste.getWidth()+18, form.getHeight()+camemb.getHeight()+45);
         
     }

@@ -17,7 +17,7 @@ import javax.swing.JFileChooser;
  * @author chris
  */
 public class Promotion {
-    private List<Etudiant> etudiants;
+    private final ArrayList<Etudiant> etudiants;
 
     public Promotion() {
         etudiants = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Promotion {
         etudiants.add(etudiant);
     }
 
-    public List<Etudiant> getEtudiants() {
+    public ArrayList<Etudiant> getEtudiants() {
         return etudiants;
     }
 
