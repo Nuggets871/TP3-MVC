@@ -117,5 +117,6 @@ public class VueFormulaire extends AbstractVue {
         gc.gridx = 11;
         this.add(btSuppr, gc);
     }
+    
 
 }
