@@ -8,19 +8,23 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
+import packVue.Observateur;
 
 /**
  *
  * @author chris
  */
-public class Promotion {
+    public class Promotion implements Serializable, Observable{
     private final ArrayList<Etudiant> etudiants;
+    private ArrayList<Observateur> listObservateur;
 
     public Promotion() {
         etudiants = new ArrayList<>();
+        listObservateur = new ArrayList<Observateur>();
     }
 
     public void ajouterEtudiant(Etudiant etudiant) {
@@ -40,6 +44,12 @@ public class Promotion {
         }
         return null; // ou lever une exception si préféré
     }
+    public void supprimerEtudiantParIndex(int index) {
+    if (index >= 0 && index < etudiants.size()) {
+        etudiants.remove(index);
+    }
+}
+
 
     // Méthode pour obtenir la liste des étudiants d'une certaine filière
     public List<Etudiant> getEtudiantsParFilliere(String filliere) {
@@ -85,6 +95,21 @@ public class Promotion {
                 System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
             }
         }
+    }
+
+    @Override
+    public void addObservateur(Observateur obs) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void removeObservateur(Observateur obs) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void notifyObservateur() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

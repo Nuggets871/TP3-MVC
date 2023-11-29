@@ -3,6 +3,8 @@ package packVue;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -22,7 +24,7 @@ public class VueListe extends AbstractVue {
     
 
     public VueListe(Promotion promotion) {
-        // Initialisation de la promotion et chargement des étudiants depuis un CSV
+        this.promotion = promotion;
         // Configuration de la JList
         liste = new JList<>();
         liste.setLayoutOrientation(JList.VERTICAL);
@@ -44,6 +46,14 @@ public class VueListe extends AbstractVue {
         this.pack();
         liste.setVisibleRowCount(this.getHeight()/8);
         this.pack();
+        
+        btSuppr.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                supprimerEtudiantSelectionne();
+            }
+        });
+
     }
 
     private void remplissageListe(Promotion promotion) {
@@ -54,7 +64,23 @@ public class VueListe extends AbstractVue {
             model.addElement(etudiant.getIdent()+"-" +etudiant.getPrenom() + " " + etudiant.getNom());
         }
         liste.setModel(model);
-    }   
+    }
+    
+    private void supprimerEtudiantSelectionne() {
+    int index = liste.getSelectedIndex();
+    if (index != -1) {
+        // Supprimer l'étudiant de la promotion
+        promotion.supprimerEtudiantParIndex(index);
+
+        // Mettre à jour la liste affichée
+        DefaultListModel<String> model = (DefaultListModel<String>) liste.getModel();
+        model.remove(index);
+    }
+}
+
+    
+    
+    
     
 
 }
