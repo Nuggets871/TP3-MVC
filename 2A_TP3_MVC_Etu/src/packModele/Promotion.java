@@ -18,7 +18,7 @@ import packVue.Observateur;
  *
  * @author chris
  */
-    public class Promotion implements Serializable, Observable{
+public class Promotion implements Observable{
     private final ArrayList<Etudiant> etudiants;
     private ArrayList<Observateur> listObservateur;
 
@@ -36,17 +36,18 @@ import packVue.Observateur;
     }
 
     // Méthode pour obtenir un étudiant par son identifiant
-    public Etudiant getEtudiantParIdent(int ident) {
+    public Etudiant getEtudiantParIdent(String ident) {
         for (Etudiant etudiant : etudiants) {
             if (etudiant.getIdent() == ident) {
                 return etudiant;
             }
         }
-        return null; // ou lever une exception si préféré
+        return null; 
     }
-    public void supprimerEtudiantParIndex(int index) {
-    if (index >= 0 && index < etudiants.size()) {
-        etudiants.remove(index);
+    public void supprimerEtudiantParIndex(String index) {
+     int index2 = Integer.parseInt(index);
+    if (index2 >= 0 && index2 < etudiants.size()) {
+        etudiants.remove(index2);
     }
 }
 
@@ -55,7 +56,7 @@ import packVue.Observateur;
     public List<Etudiant> getEtudiantsParFilliere(String filliere) {
         List<Etudiant> resultats = new ArrayList<>();
         for (Etudiant etudiant : etudiants) {
-            if (etudiant.getFilliere() == filliere) {
+            if (etudiant.getFilliere().equals(filliere)) {
                 resultats.add(etudiant);
             }
         }
@@ -78,10 +79,10 @@ import packVue.Observateur;
                     String[] valeurs = ligne.split(";");
                     if (valeurs.length == 5) {
                         try {
-                            int ident = Integer.parseInt(valeurs[0].trim());
+                            String ident = valeurs[0].trim();
                             String prenom = valeurs[1].trim();
                             String nom = valeurs[2].trim();
-                            int departement = Integer.parseInt(valeurs[3].trim());
+                            String departement = valeurs[3].trim();
                             String filliere = valeurs[4].trim();
 
                             Etudiant etudiant = new Etudiant(ident, prenom, nom, departement, filliere);
@@ -95,21 +96,25 @@ import packVue.Observateur;
                 System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
             }
         }
-    }
-
+    } 
     @Override
     public void addObservateur(Observateur obs) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        listObservateur.add(obs);
     }
 
     @Override
     public void removeObservateur(Observateur obs) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        listObservateur.remove(obs);
     }
-
-    @Override
+ 
     public void notifyObservateur() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    if (listObservateur != null) {
+        for (int i = 0; i < listObservateur.size(); i++) {
+            Observateur observateur = listObservateur.get(i);
+            if (observateur != null) {
+                observateur.update();
+            }
+        }
     }
-
+    }
 }

@@ -9,13 +9,13 @@ package packModele;
  * @author chris
  */
 public class Etudiant {
-    private final int ident;
+    private final String ident;
     private final String prenom;
     private final String nom;
-    private final int departement;
+    private final String departement;
     private final String filliere;
 
-    public Etudiant(int ident, String prenom, String nom, int departement, String filliere) {
+    public Etudiant(String ident, String prenom, String nom, String departement, String filliere) {
         this.ident = ident;
         this.prenom = prenom;
         this.nom = nom;
@@ -23,7 +23,7 @@ public class Etudiant {
         this.filliere = filliere;
     }
 
-    public int getIdent() {
+    public String getIdent() {
         return ident;
     }
 
@@ -35,7 +35,7 @@ public class Etudiant {
         return nom;
     }
 
-    public int getDepartement() {
+    public String getDepartement() {
         return departement;
     }
 

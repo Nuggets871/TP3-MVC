@@ -11,7 +11,7 @@ public class MainWindow extends JFrame{
     private final VueListe liste;
     private final VueHistogrammeChart histo;
     
-    
+    Promotion promotion;
     public MainWindow(Promotion promotion) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(new JDesktopPane());
@@ -40,6 +40,7 @@ public class MainWindow extends JFrame{
         
         //vue liste
         liste=new VueListe(promotion);
+        promotion.addObservateur(liste);
         this.add(liste);
         liste.setTitle("Liste des étudiants");
         liste.setLocation(camemb.getWidth()+histo.getWidth(), 0);

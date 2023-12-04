@@ -4,15 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Group_Java2A"/>
         <group>
-            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/VueHistogrammeChart.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/Observateur.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/AbstractVue.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packModele/Promotion.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packControleur/ControleurSuppList.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packModele/Observable.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packControleur/AbstractControleur.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/VueHistogrammeChart.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/VueCamembertChart.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/MainWindow.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/VueListe.java</file>
-            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packModele/Promotion.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/mvc/Mvc.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packVue/VueFormulaire.java</file>
             <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packModele/Etudiant.java</file>
+            <file>file:/C:/Users/chris/Desktop/oui/Cours/BUT/2eme%20annee/Qualite_dev/tp3-mvc/2A_TP3_MVC_Etu/src/packControleur/ControleurSuppForm.java</file>
         </group>
     </open-files>
 </project-private>

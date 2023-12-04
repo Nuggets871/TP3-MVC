@@ -12,18 +12,19 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import packControleur.ControleurSuppList;
 import packModele.Etudiant;
 import packModele.Promotion;
 
 
-public class VueListe extends AbstractVue {
+public class VueListe extends AbstractVue implements Observateur {
 
     private final JList<String> liste;
     private final JButton btSuppr = new JButton("Supprimer");
     private Promotion promotion;
     
 
-    public VueListe(Promotion promotion) {
+    public VueListe(final Promotion promotion) {
         this.promotion = promotion;
         // Configuration de la JList
         liste = new JList<>();
@@ -50,10 +51,22 @@ public class VueListe extends AbstractVue {
         btSuppr.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-                supprimerEtudiantSelectionne();
+                String selectedStudent = liste.getSelectedValue();
+        
+                if (selectedStudent != null) {
+                    String[] parts = selectedStudent.split("-");
+                    if (parts.length > 0) {
+                        String studentId = parts[0].trim();
+                        ControleurSuppList controleur = new ControleurSuppList(promotion);
+                        ArrayList<String> studentsToDelete = new ArrayList<>();
+                        studentsToDelete.add(studentId);
+                        controleur.control(studentsToDelete);
+                        update();
+                    }
+                }
+    
             }
         });
-
     }
 
     private void remplissageListe(Promotion promotion) {
@@ -65,19 +78,21 @@ public class VueListe extends AbstractVue {
         }
         liste.setModel(model);
     }
-    
-    private void supprimerEtudiantSelectionne() {
-    int index = liste.getSelectedIndex();
-    if (index != -1) {
-        // Supprimer l'étudiant de la promotion
-        promotion.supprimerEtudiantParIndex(index);
-
-        // Mettre à jour la liste affichée
-        DefaultListModel<String> model = (DefaultListModel<String>) liste.getModel();
-        model.remove(index);
+    private void remplissageListe2(ArrayList<Etudiant> etudiants) {
+    DefaultListModel<String> model = new DefaultListModel<>();
+    for (Etudiant etudiant : etudiants) {
+        System.out.println(etudiant.getPrenom() + " " + etudiant.getNom());
+        model.addElement(etudiant.getIdent() + "-" + etudiant.getPrenom() + " " + etudiant.getNom());
     }
+    liste.setModel(model);
 }
 
+    public void update() {
+       if (promotion != null) {
+            ArrayList<Etudiant> newPromotion = promotion.getEtudiants();
+            remplissageListe2 (newPromotion);
+        }   
+    }
     
     
     
